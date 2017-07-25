@@ -48,7 +48,7 @@ jQuery(function ($) {
 			new Router({
 				'/:filter': function (filter) {
 					this.filter = filter;
-					this.renderAndSave();
+					this.render();
 				}.bind(this)
 			}).init('/all');
 		},
@@ -66,8 +66,7 @@ jQuery(function ($) {
     renderAndSave: function () {
       this.render()
       util.store('todos-jquery', this.todos);
-    }
-    ,
+    },
 		render: function () {
 			var todos = this.getFilteredTodos();
 			$('#todo-list').html(this.todoTemplate(todos));
